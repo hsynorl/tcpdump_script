@@ -2,14 +2,14 @@ import subprocess
 from datetime import datetime
 
 # Tcpdump komutunu tanımla (Sürekli çalışması için -l seçeneği eklenir)
-command = ["sudo", "tcpdump", "-i", "eth0", "-A", "-l", "port", "80"]
+command = ["sudo", "tcpdump", "-i", "ens160", "-A", "-l", "port", "8083"]
 
 # Çıktının yazılacağı dosyanın adı (Log amaçlı kullanım için)
-log_file = "tcpdump_port_80_log.txt"
+log_file = "tcpdump_port_8083_log.txt"
 
 # tcpdump komutunu çalıştır ve çıktıyı yakala
 with subprocess.Popen(command, stdout=subprocess.PIPE, bufsize=1, text=True) as proc, open(log_file, "a") as file:
-    print(f"tcpdump başlatıldı, port 80 üzerinden gelen veriler {log_file} dosyasına ekleniyor...")
+    print(f"tcpdump başlatıldı, port 8083 üzerinden gelen veriler {log_file} dosyasına ekleniyor...")
     
     try:
         # Çıktıyı satır satır oku
